@@ -97,7 +97,6 @@ int main()
 
     fileMgIn.close();
 
-
     ifstream fin("userinform.dat");
 
     for (int i = 0; i < 2; ++i)
