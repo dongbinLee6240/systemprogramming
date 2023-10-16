@@ -48,6 +48,8 @@ int main()
     // 사용자 정보 입력받아 파일에 쓰기
     for (int i = 0; i < 2; ++i)
     {
+        cout << endl;
+
         cout << "사용자 #" << i + 1 << " 정보 입력:" << endl;
 
         cout << "id: " + user << '\n';
@@ -63,6 +65,10 @@ int main()
 
         // 파일에 쓰기
         fout << users[i].id << " " << users[i].name << " " << users[i].time << " " << users[i].score << endl;
+        
+        fout.close(); // 파일 닫기
+        getfiletime("userinform.dat");
+        fout.open("userinform.dat", ios::app);
     }
 
     fout.close();
@@ -73,13 +79,14 @@ int main()
     {
         fin >> users[i].id >> users[i].name >> users[i].time >> users[i].score;
         cout << endl; //한칸 뛰기
+        cout << "-----------------------------------" << endl;
         cout << "사용자 #" << i + 1 << " 정보:" << endl;
         cout << "ID: " + user << endl;
         cout << "이름: " << users[i].name << endl;
         cout << "게임 시간: " << users[i].time << endl;
         cout << "게임 실행 점수: " << users[i].score << endl;
         getfiletime("userinform.dat");
-        cout << "-------------------------" << endl;
+        cout << "-----------------------------------" << endl;
     }
 
     fin.close();
